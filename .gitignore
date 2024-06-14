@@ -1,0 +1,12 @@
+﻿*.suo
+*.user
+
+.vs/*
+.vscode/*
+
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
