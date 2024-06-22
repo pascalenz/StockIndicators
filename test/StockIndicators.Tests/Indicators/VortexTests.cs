@@ -44,11 +44,7 @@ public class VortexTests
     public void VortexIndicator()
     {
         var indicator = new Vortex(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("1.06", indicator.Up.Last().ToString("F2"));

@@ -44,11 +44,7 @@ public class ChandelierShortExitTests
     public void ChandelierShortExit()
     {
         var indicator = new ChandelierShortExit(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("45.68", indicator.Values.Last().ToString("F2"));

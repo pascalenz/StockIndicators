@@ -19,11 +19,7 @@ public class BollingerBandTests
     public void BollingerBand()
     {
         var indicator = new BollingerBand(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("91.05", indicator.MiddleBand.Last().ToString("F2"));

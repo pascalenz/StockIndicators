@@ -18,11 +18,7 @@ public class WeightedMovingAverageTests
     {
         var settings = new WeightedMovingAverageSettings { Periods = 10 };
         var indicator = new WeightedMovingAverage(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("22.87", indicator.Last!.Value.ToString("F2"));

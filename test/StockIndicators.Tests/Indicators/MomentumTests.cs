@@ -16,11 +16,7 @@ public class MomentumTests
     {
         var settings = new MomentumSettings { Periods = 5 };
         var indicator = new Momentum(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("2.00", indicator.Values.Last().ToString("F2"));

@@ -18,11 +18,7 @@ public class SimpleMovingAverageTests
     {
         var settings = new SimpleMovingAverageSettings { Periods = 10 };
         var indicator = new SimpleMovingAverage(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("23.13", indicator.Last!.Value.ToString("F2"));

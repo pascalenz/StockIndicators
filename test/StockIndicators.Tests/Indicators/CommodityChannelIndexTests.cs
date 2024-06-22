@@ -44,11 +44,7 @@ public class CommodityChannelIndexTests
     public void CommodityChannelIndex()
     {
         var indicator = new CommodityChannelIndex(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-73.18", indicator.Values.Last().ToString("F2"));

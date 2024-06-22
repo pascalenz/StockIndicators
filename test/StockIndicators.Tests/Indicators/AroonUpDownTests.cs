@@ -17,11 +17,7 @@ public class AroonUpDownTests
     public void AroonUpDown()
     {
         var indicator = new AroonUpDown(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("80.00", indicator.Up.Last().ToString("F2"));

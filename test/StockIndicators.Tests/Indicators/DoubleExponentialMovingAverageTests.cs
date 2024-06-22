@@ -18,11 +18,7 @@ public class DoubleExponentialMovingAverageTests
     {
         var settings = new DoubleExponentialMovingAverageSettings { Periods = 10 };
         var indicator = new DoubleExponentialMovingAverage(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("22.66", indicator.Last!.Value.ToString("F2"));

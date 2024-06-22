@@ -44,11 +44,7 @@ public class VolumeWeightedAveragePriceTests
     public void VolumeWeightedAveragePrice()
     {
         var indicator = new VolumeWeightedAveragePrice();
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("61.17", indicator.Values.Last().ToString("F2"));

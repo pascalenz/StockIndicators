@@ -44,11 +44,7 @@ public class ChandelierLongExitTests
     public void ChandelierLongExit()
     {
         var indicator = new ChandelierLongExit(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("46.52", indicator.Values.Last().ToString("F2"));

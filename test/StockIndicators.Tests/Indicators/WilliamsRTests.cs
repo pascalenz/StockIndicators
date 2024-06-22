@@ -44,11 +44,7 @@ public class WilliamsRTests
     public void WilliamsR()
     {
         var indicator = new WilliamsR(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-43.24", indicator.Values.Last().ToString("F2"));

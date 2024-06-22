@@ -44,11 +44,7 @@ public class ChaikinVolatilityTests
     public void ChaikinVolatility()
     {
         var indicator = new ChaikinVolatility(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-0.224", indicator.Values.Last().ToString("F3"));

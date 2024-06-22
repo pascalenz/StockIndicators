@@ -45,11 +45,7 @@ public class PositiveVolumeIndexTests
     {
         var settings = new PositiveVolumeIndexSettings { SignalPeriods = 20 };
         var indicator = new PositiveVolumeIndex(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("1013.37", indicator.Values.Last().ToString("F2"));

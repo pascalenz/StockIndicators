@@ -18,11 +18,7 @@ public class TripleExponentialMovingAverageTests
     {
         var settings = new TripleExponentialMovingAverageSettings { Periods = 10 };
         var indicator = new TripleExponentialMovingAverage(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("22.35", indicator.Last!.Value.ToString("F2"));

@@ -45,11 +45,7 @@ public class NegativeVolumeIndexTests
     {
         var settings = new NegativeVolumeIndexSettings { SignalPeriods = 20 };
         var indicator = new NegativeVolumeIndex(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("1001.10", indicator.Values.Last().ToString("F2"));

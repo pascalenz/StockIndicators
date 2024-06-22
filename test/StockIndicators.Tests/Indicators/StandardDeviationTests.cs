@@ -19,11 +19,7 @@ public class StandardDeviationTests
     {
         var settings = new StandardDeviationSettings { Periods = 10 };
         var indicator = new StandardDeviation(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("0.74", indicator.Values.Last().ToString("F2"));

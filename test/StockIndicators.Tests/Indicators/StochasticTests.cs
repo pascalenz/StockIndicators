@@ -44,11 +44,7 @@ public class StochasticTests
     public void Stochastic()
     {
         var indicator = new Stochastic(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("54.75", indicator.KLine.Last().ToString("F2"));

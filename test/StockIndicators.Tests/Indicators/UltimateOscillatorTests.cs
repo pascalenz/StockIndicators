@@ -44,11 +44,7 @@ public class UltimateOscillatorTests
     public void UltimateOscillator()
     {
         var indicator = new UltimateOscillator(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("57.21", indicator.Values.Last().ToString("F2"));

@@ -44,11 +44,7 @@ public class AccumulationDistributionLineTests
     public void AccumulationDistributionLine()
     {
         var indicator = new AccumulationDistributionLine(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-51551", indicator.Values.Last().ToString("F0"));

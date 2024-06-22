@@ -17,11 +17,7 @@ public class RelativeStrengthIndexTests
     public void RelativeStrengthIndex()
     {
         var indicator = new RelativeStrengthIndex(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("37.79", indicator.Values.Last().ToString("F2"));

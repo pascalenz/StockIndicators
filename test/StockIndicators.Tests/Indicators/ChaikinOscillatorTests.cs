@@ -44,11 +44,7 @@ public class ChaikinOscillatorTests
     public void ChaikinOscillator()
     {
         var indicator = new ChaikinOscillator(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-8473.339", indicator.Values.Last().ToString("F3"));

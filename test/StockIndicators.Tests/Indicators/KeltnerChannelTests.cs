@@ -44,11 +44,7 @@ public class KeltnerChannelTests
     public void KeltnerChannel()
     {
         var indicator = new KeltnerChannel(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("44.09", indicator.LowerBand.Last().ToString("F2"));

@@ -19,11 +19,7 @@ public class EnvelopesTests
     public void Envelopes()
     {
         var indicator = new Envelopes(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("90.40", indicator.Average.Last().ToString("F2"));

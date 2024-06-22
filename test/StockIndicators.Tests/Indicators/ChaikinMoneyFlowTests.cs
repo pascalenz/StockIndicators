@@ -44,11 +44,7 @@ public class ChaikinMoneyFlowTests
     public void ChaikinMoneyFlow()
     {
         var indicator = new ChaikinMoneyFlow(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("-0.015", indicator.Values.Last().ToString("F3"));

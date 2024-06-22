@@ -44,11 +44,7 @@ public class AverageTrueRangeTests
     public void AverageTrueRange()
     {
         var indicator = new AverageTrueRange(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("1.3163", indicator.Values.Last().ToString("F4"));

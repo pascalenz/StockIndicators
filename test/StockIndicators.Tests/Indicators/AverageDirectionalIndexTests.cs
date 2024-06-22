@@ -54,11 +54,7 @@ public class AverageDirectionalIndexTests
     public void AverageDirectionalIndex()
     {
         var indicator = new AverageDirectionalIndex(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("18.73", indicator.Values.Last().ToString("F2"));

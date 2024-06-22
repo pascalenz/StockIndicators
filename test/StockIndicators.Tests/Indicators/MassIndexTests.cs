@@ -61,11 +61,7 @@ public class MassIndexTests
     {
         var settings = new MassIndexSettings { MovingAveragePeriods = 9, SumPeriods = 25 };
         var indicator = new MassIndex(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("25.30", indicator.Values.Last().ToString("F2"));

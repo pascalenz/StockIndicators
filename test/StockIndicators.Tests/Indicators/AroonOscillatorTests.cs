@@ -17,11 +17,7 @@ public class AroonOscillatorTests
     public void AroonOscillator()
     {
         var indicator = new AroonOscillator(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("24.00", indicator.Values.Last().ToString("F2"));

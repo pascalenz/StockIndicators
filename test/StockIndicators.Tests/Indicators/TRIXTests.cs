@@ -17,11 +17,7 @@ public class TRIXTests
     public void TRIX()
     {
         var indicator = new TRIX(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("0.1909", indicator.Values.Last().ToString("F4"));

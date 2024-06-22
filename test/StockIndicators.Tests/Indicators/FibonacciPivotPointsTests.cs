@@ -16,11 +16,7 @@ public class FibonacciPivotPointsTests
     public void FibonacciPivotPoints()
     {
         var indicator = new FibonacciPivotPoints(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("62.9233", indicator.Resistance3.Last().ToString("F4"));

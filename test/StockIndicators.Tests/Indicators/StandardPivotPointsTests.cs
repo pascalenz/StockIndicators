@@ -16,11 +16,7 @@ public class StandardPivotPointsTests
     public void PivotPoints()
     {
         var indicator = new StandardPivotPoints(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("63.5067", indicator.Resistance3.Last().ToString("F4"));

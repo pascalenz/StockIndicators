@@ -18,11 +18,7 @@ public class ExponentialMovingAverageTests
     {
         var settings = new ExponentialMovingAverageSettings { Periods = 10 };
         var indicator = new ExponentialMovingAverage(IndicatorCapacity.Infinite, settings);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("22.92", indicator.Last!.Value.ToString("F2"));

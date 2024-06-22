@@ -44,11 +44,7 @@ public class OnBalanceVolumeTests
     public void OnBalanceVolume()
     {
         var indicator = new OnBalanceVolume(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(price);
-        }
+        indicator.Add(prices);
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("60632", indicator.Values.Last().ToString("F0"));

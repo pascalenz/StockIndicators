@@ -19,11 +19,7 @@ public class MACDTests
     public void MACD()
     {
         var indicator = new MACD(IndicatorCapacity.Infinite);
-
-        foreach (var price in prices)
-        {
-            indicator.Add(new TestPrice { Close = price });
-        }
+        indicator.Add(prices.Select(price => new TestPrice { Close = price }));
 
         Assert.IsTrue(indicator.IsReady);
         Assert.AreEqual("0.13", indicator.Values.Last().ToString("F2"));
