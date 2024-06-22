@@ -48,11 +48,10 @@ while (true)
         }
     }
 
-    // Create the indicator instance.
+    // Create the indicator instance and write the test data to it.
     var parameters = selectedIndicatorDescription.Parameters.ToDictionary(p => p.Name, p => p.DefaultValue);
     var indicator = catalog.CreateIndicator(selectedIndicatorDescription, parameters);
 
-    // Write the data to the indicator.
     if (indicator is IAverageIndicator averageIndicator)
         prices.ForEach(p => averageIndicator.Add(p.Close));
     else if (indicator is IPriceIndicator priceIndicator)
@@ -60,7 +59,7 @@ while (true)
     else
         throw new InvalidOperationException("Unexpected chart type");
 
-    // Generate the chart description.
+    // Generate the chart description from the indicator.
     Chart? chart;
 
     if (indicator is IChartProvider chartProvider)

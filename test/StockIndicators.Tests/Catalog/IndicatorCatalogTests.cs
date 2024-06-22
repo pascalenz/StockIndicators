@@ -1,7 +1,6 @@
-﻿using StockIndicators.AverageIndicators;
-using StockIndicators.Catalog;
-using StockIndicators.PriceIndicators;
+﻿using StockIndicators.Catalog;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StockIndicators.Indicators;
 
 namespace StockIndicators.Tests.Catalog;
 
