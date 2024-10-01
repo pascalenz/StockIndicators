@@ -122,7 +122,7 @@ var parameters = indicatorDescription.Parameters
     .ToDictionary(p => p.Name, p => p.DefaultValue);
 
 // Now instantiate the indicator.
-var indicator = catalog.CreateIndicator(indicatorDescription);
+var indicator = catalog.CreateIndicator(indicatorDescription, parameters);
 
 // Finally we fill the indicator with data. To do this,
 // we need to know what type of indicator it is.
